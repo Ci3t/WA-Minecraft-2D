@@ -7,15 +7,20 @@ const rock = document.querySelector('.rockInv')
 const leaves = document.querySelector('.leavesInv')
 const soil = document.querySelector('.soilInv')
 const grass = document.querySelector('.grassInv')
+const highlightPick = document.querySelector('#pickaxeText')
+const highlightAxe = document.querySelector('#axeText')
+const highlightShovel = document.querySelector('#shovelText')
+const highlightSoil = document.querySelector('#soilText')
+const highlightRock = document.querySelector('#rockText')
+const highlightWood = document.querySelector('#woodText')
+const highlightGrass = document.querySelector('#grassText')
+const highlightLeaf = document.querySelector('#leafText')
+const button = document.querySelector('button')
 
 
 const counter = document.querySelectorAll('.counter')
 const gridColumnNumber = 25
 const gridRowNumber = 15
-
-
-
-
 
 
 let userClick = []
@@ -26,44 +31,27 @@ const materialObj = {
     'shovel':['soil','grass']
 }
 
-const materialCounter ={
-    rock : counter[0], 
-    wood : counter[1], 
-    leaves : counter[2], 
-    soil : counter[3], 
-    grass : counter[4]
+let materialCounter ={
+    soil : counter[0], 
+    rock : counter[1], 
+    wood : counter[2], 
+    grass : counter[3],
+    leaves : counter[4], 
 }
-const status1 = {
+let status1 = {
     selectedTool:null,
     selectedMaterial:null,
     inventory:{
+        soil : 0, 
         rock : 0, 
          wood : 0, 
+         grass : 0,
          leaves : 0, 
-         soil : 0, 
-         grass : 0
     }
 };
 let material ;
 
 let divTag = ''
-
-
-// function gridDraw(material, rowStart = 1, rowEnd = 15, columnStart = 1, columnEnd = 25) {
-    
-//      for (let row = rowStart; row <= rowEnd; row++) {
-//         for (let column = columnStart; column <= columnEnd; column++) {
-//              objOfBoxes[`${row}.${column}`].classList.add(material);
-//         }
-//     }
-// }
-// function landMaker(length = 25) { // grid length
-//     gridDraw('grass', 14, 14, 1, length)
-//     gridDraw('soil', 15, 20, 1, length);
-//     gridDraw('cloud', 5, 5, 9, 13);
-//     gridDraw('cloud', 4, 4, 10, 13);
-//     gridDraw('cloud', 3, 3, 10, 11);
-// }
 
 
 
@@ -88,9 +76,7 @@ function drawGrid() {
     }
 }
 }
-// const sky = Array.from(document.querySelectorAll('.sky')) // s
-// let options = new Array(375).fill(null);
-console.log(sky);
+
 
 
 drawBoard()
@@ -98,11 +84,19 @@ function drawBoard() {
     
     for(let s = 0; s<sky.length;s++){
         let [i,j] = sky[s].getAttribute("id").split("-")
-        console.log(`${i} ${j} `);
+        // console.log(`${i} ${j} s${s}`);
         drawGrass(Number(i), Number(j), Number(s))
         drawRock(Number(i), Number(j), Number(s))
         drawTree(Number(i), Number(j), Number(s))
         drawCloud(Number(i), Number(j), Number(s))
+        drawBlock(Number(i), Number(j), Number(s))
+    }
+
+    function drawBlock(i,j,s) {
+        if(i < 4 && j< 25){
+            sky[s].classList.add('block')
+            sky[s].classList.remove('sky')
+        }
     }
     function drawGrass(i,j,s) {
     
@@ -261,12 +255,16 @@ function drawBoard() {
 
 
 function startGame () {
-    sky.forEach(box => {
-        box.addEventListener('click', boxClicked);
-    })
+    gameBoard.addEventListener('click', boxClicked);
+  
     shovel.addEventListener('click',()=>{
         status1.selectedTool = 'shovel'
         status1.selectedMaterial = null
+        if(status1.selectedTool = 'shovel'){
+            highlightPick.style.color = 'white'
+            highlightAxe.style.color = 'white'
+            highlightShovel.style.color = 'red'
+        }
         
        
         console.log('shovel');
@@ -275,99 +273,187 @@ function startGame () {
         status1.selectedTool = 'axe'
         status1.selectedMaterial = null
         console.log('axe');
+        if(status1.selectedTool = 'axe'){
+            highlightPick.style.color = 'white'
+            highlightAxe.style.color = 'red'
+            highlightShovel.style.color = 'white'
+        }
+        
+       
         
     }) 
     pickaxe.addEventListener('click',()=>{
         status1.selectedTool = 'pickaxe'
         status1.selectedMaterial = null
         console.log('pick');
+
         
+    if(status1.selectedTool = 'pickaxe'){
+        highlightPick.style.color = 'red'
+        highlightAxe.style.color = 'white'
+        highlightShovel.style.color = 'white'
+    }
+           
+            
         
+          
     }) 
 
-    grass.addEventListener('click',()=>{
+   
+
+    grass.addEventListener('click',(e)=>{
         status1.selectedMaterial = 'grass'
         status1.selectedTool = null
+
+        if(status1.selectedMaterial = 'grass'){
+            highlightSoil.style.color = 'white'
+            highlightRock.style.color = 'white'
+            highlightGrass.style.color = 'red'
+            highlightLeaf.style.color = 'white'
+            highlightWood.style.color = 'white'
+            highlightPick.style.color = 'white'
+        highlightAxe.style.color = 'white'
+        highlightShovel.style.color = 'white'
+        }
+        
+      
+        
     }) 
     rock.addEventListener('click',()=>{
         status1.selectedMaterial = 'rock'
         status1.selectedTool = null
+
+        if(status1.selectedMaterial = 'rock'){
+            highlightSoil.style.color = 'white'
+            highlightRock.style.color = 'red'
+            highlightGrass.style.color = 'white'
+            highlightLeaf.style.color = 'white'
+            highlightWood.style.color = 'white'
+            highlightPick.style.color = 'white'
+        highlightAxe.style.color = 'white'
+        highlightShovel.style.color = 'white'
+        }
     }) 
-    wood.addEventListener('click',()=>{
+    wood.addEventListener('click',(e)=>{
         status1.selectedMaterial = 'wood'
         status1.selectedTool = null
+        if(status1.selectedMaterial = 'wood'){
+            highlightSoil.style.color = 'white'
+            highlightRock.style.color = 'white'
+            highlightGrass.style.color = 'white'
+            highlightLeaf.style.color = 'white'
+            highlightWood.style.color = 'red'
+            highlightPick.style.color = 'white'
+        highlightAxe.style.color = 'white'
+        highlightShovel.style.color = 'white'
+        }
     }) 
     leaves.addEventListener('click',()=>{
         status1.selectedMaterial = 'leaves'
         status1.selectedTool = null
+        if(status1.selectedMaterial = 'leaves'){
+            highlightSoil.style.color = 'white'
+            highlightRock.style.color = 'white'
+            highlightGrass.style.color = 'white'
+            highlightLeaf.style.color = 'red'
+            highlightWood.style.color = 'white'
+            highlightPick.style.color = 'white'
+             highlightAxe.style.color = 'white'
+         highlightShovel.style.color = 'white'
+        }
     }) 
-    soil.addEventListener('click',()=>{
+
+    soil.addEventListener('click',(e)=>{
+        
         status1.selectedMaterial = 'soil'
         status1.selectedTool = null
+        if(status1.selectedMaterial = 'soil'){
+            highlightSoil.style.color = 'red'
+            highlightRock.style.color = 'white'
+            highlightGrass.style.color = 'white'
+            highlightLeaf.style.color = 'white'
+            highlightWood.style.color = 'white'
+        }
+
+    
+       
+        
     }) 
+
+
+   
+    
 }
+
+
 console.log(status1.selectedTool);
 
 function boxClicked(e) {
+
 
     if(!status1.selectedTool && !status1.selectedMaterial){
         return;
     }
 
-    boxId = e.target.id
-    boxClass= e.target.getAttribute('class') 
-    // console.log(status1.inventory[selectedMaterial], status1.selectedMaterial);
-
+ 
     
+    console.log(`new Target : ${e.Target}`);
+   
+    
+  
+    
+
+
+    boxClass= e.target.getAttribute('class') 
+
+    if(boxClass.includes('block') ){
+        return
+    }
+  
+
     if(status1.selectedTool){
+        
+
         if (materialObj[status1.selectedTool]?.includes(boxClass)){
             e.target.className = "sky"
 
             status1.inventory[boxClass] += 1
             materialCounter[boxClass].textContent = status1.inventory[boxClass]
             
-    }
-    }
+            
 
+            
+    }
+    }
+   
 if(status1.selectedMaterial){
-    if(status1.inventory[status1.selectedMaterial]>0 && status1.selectedMaterial){
+    if(!boxClass){
+        
+        
+    }
+    if(status1.inventory[status1.selectedMaterial]>0 && status1.selectedMaterial && boxClass == 'sky'){
         e.target.className = status1.selectedMaterial
+        
         status1.inventory[status1.selectedMaterial] -= 1
-        // console.log(status1.inventory[selectedMaterial]);
+       
+        materialCounter[status1.selectedMaterial].textContent = status1.inventory[status1.selectedMaterial]
+        
+           
         
     }
 }
 
-console.log(status1.selectedMaterial);
     
-
+console.log(e.target);
         
-    //     e.target.className = 'soil'
-  
-    // if(boxClass.includes('soil')){
-    //     e.target.classList.add('sky')
-    //     e.target.classList.remove('soil')
-    // }
-    // if(boxClass.includes('grass')){
-    //     e.target.classList.add('sky')
-    //     e.target.classList.remove('grass')
-    // }
-    // if(boxClass.includes('rock')){
-    //     e.target.classList.add('sky')
-    //     e.target.classList.remove('rock')
-    // }
-    // if(boxClass.includes('wood')){
-    //     e.target.classList.add('sky')
-    //     e.target.classList.remove('wood')
-    // }
-    // if(boxClass.includes('leaves')){
-    //     e.target.classList.add('sky')
-    //     e.target.classList.remove('leaves')
-    // }
+
   
     
 }
 
-
+button.addEventListener('click',()=>{
+    location.reload();
+})
 
 startGame () 
+

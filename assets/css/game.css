@@ -1,0 +1,143 @@
+@font-face {
+  font-family: Minecrafter;
+  src: url(/assets/fonts/Minecrafter.Reg.ttf);
+}
+@font-face {
+  font-family: MinecrafterAlt;
+  src: url(/assets/fonts/Minecrafter.Alt.ttf);
+}
+@font-face {
+  font-family: Minecraftia-Reg;
+  src: url(/assets/fonts/Minecraftia-Regular.ttf);
+}
+@font-face {
+  font-family: Minecraftia-icon;
+  src: url(/assets/fonts/minecraft_10-icons.ttf);
+}
+@font-face {
+  font-family: craft-icon;
+  src: url(/assets/fonts/craft-icons.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #faedcd;
+}
+body .wrapper {
+  background-color: #faedcd;
+  width: 100em;
+  margin-left: auto;
+  margin-right: auto;
+}
+body .wrapper .board {
+  width: 80em;
+  height: 100vh;
+  background-color: #d4a373;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+body .wrapper .board .game {
+  background-color: rgb(75, 174, 231);
+  width: 80em;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+}
+body .wrapper .board .navbar {
+  background-color: #cbcbcb;
+  height: 20vh;
+  width: 80em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7em;
+}
+body .wrapper .board .navbar #tools ul {
+  list-style: none;
+  background-color: #383838;
+  width: 30em;
+  height: 6em;
+  padding-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+  box-shadow: inset 4px 4px #2c2c2c, inset -4px -4px 0px 0px #e3dfdf;
+}
+body .wrapper .board .navbar #tools ul li {
+  border: 3px solid #cbcbcb;
+  width: 4em;
+  height: 3em;
+  box-shadow: inset 2px 2px 0px 0px #504e4e, inset -2px -2px 0px 0px #e3e3e3;
+}
+body .wrapper .board .navbar #tools ul li img {
+  width: 40px;
+  margin-left: 8px;
+}
+body .wrapper .board .navbar #inventory ul {
+  list-style: none;
+  background-color: #383838;
+  width: 30em;
+  height: 6em;
+  padding-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+  box-shadow: inset 4px 4px #2c2c2c, inset -4px -4px 0px 0px #e3dfdf;
+}
+body .wrapper .board .navbar #inventory ul li {
+  border: 3px solid #cbcbcb;
+  width: 4em;
+  height: 3em;
+  box-shadow: inset 2px 2px 0px 0px #504e4e, inset -2px -2px 0px 0px #e3e3e3;
+}
+body .wrapper .board .navbar #inventory ul li img {
+  width: 40px;
+  object-fit: contain;
+  margin-left: 8px;
+}
+body .wrapper .board .navbar #inventory .counter {
+  display: inline-block;
+  background-color: red;
+}
+
+.remove {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.grass {
+  background: url(/assets/images/icons/grass1.png) center center/cover no-repeat;
+}
+
+.soil {
+  background: url(/assets/images/icons/soil.jpg) center center/cover no-repeat;
+}
+
+.cloud {
+  background: url(/assets/images/icons/cloud.png) center center/cover no-repeat;
+}
+
+.rock {
+  background: url(/assets/images/icons/rock.png) center center/cover no-repeat;
+}
+
+.leaves {
+  background: url(/assets/images/icons/tree-leaves.png) center center/cover no-repeat;
+}
+
+.wood {
+  background: url(/assets/images/icons/tree.png) center center/cover no-repeat;
+}

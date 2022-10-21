@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/game.css" />
+    <title>MineCraft 2D</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="board">
+        <div class="game"></div>
+        <div class="navbar">
+          <div id="tools">
+            <ul>
+              <li id="axe">
+                <img src="assets/images/icons/axe.png" alt="axe" />
+              </li>
+
+              <li id="pickaxe">
+                <img src="assets/images/icons/pickaxe.png" alt="pickaxe" />
+              </li>
+              <li id="shovel">
+                <img src="assets/images/icons/shovel.png" alt="shovel" />
+              </li>
+            </ul>
+          </div>
+          <div id="inventory">
+            <ul>
+              <li>
+                <div>
+                  <img
+                    class="soilInv"
+                    src="assets/images/icons/soil.jpg"
+                    alt="soil"
+                  />
+                </div>
+              </li>
+              <li>
+                <img
+                  class="rockInv"
+                  src="assets/images/icons/rock.png"
+                  alt="rock"
+                />
+              </li>
+              <li>
+                <img
+                  class="woodInv"
+                  src="assets/images/icons/tree.png"
+                  alt="wood"
+                />
+              </li>
+              <li>
+                <img
+                  class="grassInv"
+                  src="assets/images/icons/grass.png"
+                  alt="grass"
+                />
+              </li>
+              <li>
+                <img
+                  class="leavesInv"
+                  src="assets/images/icons/tree-leaves.png"
+                  alt="leaves"
+                />
+              </li>
+            </ul>
+            <p class="counter">0</p>
+            <p class="counter">0</p>
+            <p class="counter">0</p>
+            <p class="counter">0</p>
+            <p class="counter">0</p>
+            <p class="counter">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/game.js"></script>
+  </body>
+</html>

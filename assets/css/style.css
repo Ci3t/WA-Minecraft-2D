@@ -27,7 +27,7 @@
 body {
   background-color: #dda15e;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body .eyes .eye {
   position: relative;

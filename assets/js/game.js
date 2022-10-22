@@ -452,7 +452,10 @@ console.log(e.target);
 }
 
 button.addEventListener('click',()=>{
-    location.reload();
+    window.location = 'game.html' 
+
+   
+    
 })
 
 startGame () 

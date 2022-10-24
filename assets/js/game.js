@@ -26,9 +26,9 @@ const gridRowNumber = 15
 let userClick = []
 
 const materialObj = {
-    'axe':['leaves','wood'],
-    'pickaxe': ['rock'],
-    'shovel':['soil','grass']
+    axe:['leaves','wood'],
+    pickaxe: ['rock'],
+    shovel:['soil','grass']
 }
 
 let materialCounter ={
@@ -264,6 +264,11 @@ function startGame () {
             highlightPick.style.color = 'white'
             highlightAxe.style.color = 'white'
             highlightShovel.style.color = 'red'
+            highlightSoil.style.color = 'white'
+            highlightRock.style.color = 'white'
+            highlightGrass.style.color = 'white'
+            highlightLeaf.style.color = 'white'
+            highlightWood.style.color = 'white'
         }
         
        
@@ -277,6 +282,11 @@ function startGame () {
             highlightPick.style.color = 'white'
             highlightAxe.style.color = 'red'
             highlightShovel.style.color = 'white'
+            highlightSoil.style.color = 'white'
+            highlightRock.style.color = 'white'
+            highlightGrass.style.color = 'white'
+            highlightLeaf.style.color = 'white'
+            highlightWood.style.color = 'white'
         }
         
        
@@ -292,6 +302,11 @@ function startGame () {
         highlightPick.style.color = 'red'
         highlightAxe.style.color = 'white'
         highlightShovel.style.color = 'white'
+        highlightSoil.style.color = 'white'
+        highlightRock.style.color = 'white'
+        highlightGrass.style.color = 'white'
+        highlightLeaf.style.color = 'white'
+        highlightWood.style.color = 'white'
     }
            
             
@@ -363,7 +378,7 @@ function startGame () {
         }
     }) 
 
-    soil.addEventListener('click',(e)=>{
+    soil.addEventListener('click',()=>{
         
         status1.selectedMaterial = 'soil'
         status1.selectedTool = null
@@ -373,6 +388,9 @@ function startGame () {
             highlightGrass.style.color = 'white'
             highlightLeaf.style.color = 'white'
             highlightWood.style.color = 'white'
+            highlightPick.style.color = 'white'
+             highlightAxe.style.color = 'white'
+         highlightShovel.style.color = 'white'
         }
 
     
@@ -416,7 +434,7 @@ function boxClicked(e) {
 
         if (materialObj[status1.selectedTool]?.includes(boxClass)){
             e.target.className = "sky"
-
+            
             status1.inventory[boxClass] += 1
             materialCounter[boxClass].textContent = status1.inventory[boxClass]
             
@@ -452,7 +470,38 @@ console.log(e.target);
 }
 
 button.addEventListener('click',()=>{
-    window.location = 'game.html' 
+    // window.location = 'game.html' 
+
+    
+ materialCounter ={
+    soil : counter[0], 
+    rock : counter[1], 
+    wood : counter[2], 
+    grass : counter[3],
+    leaves : counter[4], 
+}
+ status1 = {
+    selectedTool:null,
+    selectedMaterial:null,
+    inventory:{
+        soil : 0, 
+        rock : 0, 
+         wood : 0, 
+         grass : 0,
+         leaves : 0, 
+    }
+
+    
+};
+counter[0].textContent = 0
+counter[1].textContent = 0
+counter[2].textContent = 0
+counter[3].textContent = 0
+counter[4].textContent = 0
+gameBoard.replaceChildren([]);
+
+drawGrid()
+drawBoard()
 
    
     

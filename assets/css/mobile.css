@@ -17,15 +17,28 @@
     display: none;
   }
 }
-@media only screen and (max-width: 900px) {
-  .board {
-    max-width: 100em;
-  }
-  .board .game {
+@media all and (max-width: 1460px) {
+  body .wrapper {
     width: 100%;
   }
-  .board .navbar {
+  body .wrapper .board {
+    width: 100%;
+  }
+  body .wrapper .board .game {
+    width: 100%;
+  }
+  body .wrapper .board .navbar {
     width: 100%;
     gap: 0;
+  }
+  body .wrapper .board .navbar #tools ul {
+    width: 100%;
+    height: 5em;
+    gap: 0;
+  }
+  body .wrapper .board .navbar #inventory ul {
+    width: 100%;
+    gap: 0;
+    height: 5em;
   }
 }

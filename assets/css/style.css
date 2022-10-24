@@ -100,3 +100,20 @@ body a:after {
   border-left: 6px black solid;
   border-right: 6px black solid;
 }
+
+@media all and (max-width: 900px) {
+  body .eyes {
+    display: none;
+  }
+  body div {
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+  }
+  body div img {
+    width: 23em;
+  }
+  body button {
+    margin-top: 3em;
+  }
+}
